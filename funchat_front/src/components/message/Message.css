@@ -1,0 +1,21 @@
+.message{
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-top: 5px;
+
+    min-width: 100px;
+    max-width: 400px;
+    min-height: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    background-color: rgb(155, 153, 255);
+    
+    color: white;
+    text-align: left;
+
+    border-style: none;
+    border-radius: 0em 0.8em 0.8em 0.8em;
+}
