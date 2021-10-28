@@ -10,22 +10,23 @@
     padding-right: 20px;
     padding-top: 10px;
     padding-bottom: 10px;
-
-    background-color: rgb(155, 153, 255);
     
-    color: white;
     text-align: left;
 
     border-style: none;
 }
 
 #message-left{
-
+    background-color: rgb(235, 233, 233);
+    color: black;
     border-radius: 0em 0.8em 0.8em 0.8em;
+
 }
 
 #message-right{
     margin-left: auto;
+    background-color: rgb(155, 153, 255);
+    color: white;
 
     border-radius: 0.8em 0em 0.8em 0.8em;
 }

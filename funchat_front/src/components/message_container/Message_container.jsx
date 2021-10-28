@@ -5,7 +5,7 @@ import Message from '../message/Message'
 
 function Message_container() {
     return (
-        <div className="message-container">
+        <div className="message-container" >
             <Message/>
             <Message/>
 
