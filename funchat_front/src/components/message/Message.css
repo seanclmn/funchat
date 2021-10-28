@@ -17,5 +17,15 @@
     text-align: left;
 
     border-style: none;
+}
+
+#message-left{
+
     border-radius: 0em 0.8em 0.8em 0.8em;
+}
+
+#message-right{
+    margin-left: auto;
+
+    border-radius: 0.8em 0em 0.8em 0.8em;
 }
