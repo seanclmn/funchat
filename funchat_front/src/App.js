@@ -1,30 +1,40 @@
-import logo from './logo.svg';
+import React,{useEffect,useState} from 'react'
+import { BrowserRouter as Router, Route} from 'react-router-dom'
 import './App.css';
 import Main from './pages/Main';
 import Signup from './components/signup/SignUp';
+import SignIn from './components/signin/SignIn'
 
 import firebase from 'firebase/app'
 import "firebase/auth"
 import "firebase/firestore"
-// import { useAuthState } from 'react-firebase-hooks/auth'
-// import { useCollectionData } from 'react-firebase-hooks/firestore'
-// const app = firebase.initializeApp({
-//     apiKey: "AIzaSyCkwaZiSW8LxW-0kODvTxRSB3YzEL1wYwI",
-//     authDomain: "fir-practice-85948.firebaseapp.com",
-//     projectId: "fir-practice-85948",
-//     storageBucket: "fir-practice-85948.appspot.com",
-//     messagingSenderId: "77523700392",
-//     appId: "1:77523700392:web:033684b4b7f0220d93509d"
-// })
+import { auth } from './Firebase';
+import AuthProvider from './components/auth/Auth';
 
 
 function App() {
 
-  // const [user]=useAuthState(firebase.auth)
+  console.log(auth.currentUser)
+
+  const [currentUser,setCurrentUser] = useState(null)
+
+  useEffect(()=>{
+      auth.onAuthStateChanged(setCurrentUser)
+  },[])
   return (
+    // <AuthProvider>
+    //       <Router>
+    //         <div className="App">
+    //             {!auth.currentUser ? <SignIn/>: <Main/>}
+        
+    //         </div>
+    //       </Router>
+    // </AuthProvider>
+
+
     <div className="App">
-        <Signup/>
-        {/* <Main/> */}
+    {!auth.currentUser ? <SignIn/>: <Main/>}
+
     </div>
   );
 }
