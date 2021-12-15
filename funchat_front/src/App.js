@@ -23,10 +23,7 @@ function App() {
       auth.onAuthStateChanged(setCurrentUser)
   },[])
   return (
-    <AuthProvider>
-
-      {/* <SignIn/> */}
-      
+    <AuthProvider>      
       <Router>
           <Routes>
             <Route exact path= '/'
@@ -40,18 +37,8 @@ function App() {
             <Route exact path='/signin' element={<SignIn/>}/>
             <Route exact path='/signup' element={<SignUp/>}/>
           </Routes>
-
-
       </Router>
-
-
     </AuthProvider>
-
-
-    // <div className="App">
-    // {!auth.currentUser ? <SignIn/>: <Main/>}
-
-    // </div>
   );
 }
 

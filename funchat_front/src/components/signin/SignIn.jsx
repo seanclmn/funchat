@@ -3,8 +3,11 @@ import { Navigate } from 'react-router'
 import { auth } from '../../Firebase'
 import { AuthContext } from '../auth/Auth'
 
+import './Signin.css'
+
 function SignIn() {
 
+    const [passwordToggle,setPasswordToggle]=useState(true)
     const [Email,setNewEmail]=useState("")
     const [Password, setNewPassword]=useState("")
 
@@ -15,6 +18,10 @@ function SignIn() {
         setNewPassword(e.target.value)
     }
 
+
+    function passwordHandler(){
+        setPasswordToggle(!passwordToggle)
+    }
 
     function submitHandler(e){
         e.preventDefault()
@@ -29,15 +36,14 @@ function SignIn() {
     if (currentUser) return <Navigate to='/'/>
 
     return (
-        <div>
-            <h2>Sign in</h2>
-
+        <div className="signin-card-container">
+            <h2 id="title">Sign in</h2>
             <form 
-                className="signup-form"
+                className="signin-form"
                 >
                 <input
                     name="email"
-                    className="signup-input"
+                    className="signin-input"
                     type="text"
                     placeholder="email"
                     autoComplete="off"
@@ -46,19 +52,37 @@ function SignIn() {
 
                 <input
                     name="password"    
-                    className="signup-input"
-                    type="text"
+                    className="signin-input"
+                    type={passwordToggle ? "password": "text"}
                     placeholder="password"
                     autoComplete="off"
                     onChange={passwordChangeHandler}
                 />
+
+                <div>
+                    <input
+                        type="checkbox"
+                        className="password-toggle"
+                        onClick={passwordHandler}
+                        
+                    />Show Password
+                </div>
                 <button
+                    className="submit"
                     onClick={submitHandler}
                     >
-                    submit
+                    Sign In
                 </button>
+
+
             </form>
 
+
+            <div className="signup-link-container">
+                <p className="signup-link">
+                    New User? Sign up
+                </p>
+            </div>
         </div>
     )
 }
