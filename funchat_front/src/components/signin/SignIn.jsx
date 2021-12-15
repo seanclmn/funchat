@@ -1,4 +1,5 @@
 import React, {useState, useContext} from 'react'
+import { Link } from 'react-router-dom'
 import { Navigate } from 'react-router'
 import { auth } from '../../Firebase'
 import { AuthContext } from '../auth/Auth'
@@ -79,9 +80,11 @@ function SignIn() {
 
 
             <div className="signup-link-container">
-                <p className="signup-link">
-                    New User? Sign up
-                </p>
+                <Link to='/signup' style={ {textDecoration: 'none'}}>
+                    <p className="signup-link">
+                        New User? Sign up
+                    </p>
+                </Link>
             </div>
         </div>
     )

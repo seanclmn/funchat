@@ -1,5 +1,8 @@
 import React, {useState} from 'react'
 import { auth } from '../../Firebase'
+import { Link } from 'react-router-dom'
+
+import './Signup.css'
 
 function Signup() {
 
@@ -22,8 +25,8 @@ function Signup() {
         console.log(newEmail)
     }
     return (
-        <div>
-            <h2>Sign up</h2>
+        <div className="signup-card-container">
+            <h2 id="title">Sign up</h2>
 
             <form 
                 className="signup-form"
@@ -46,12 +49,19 @@ function Signup() {
                     onChange={passwordChangeHandler}
                 />
                 <button
+                className="submit"
                     onClick={submitHandler}
                     >
-                    submit
+                    Sign Up
                 </button>
             </form>
-
+            <div className="signup-link-container">
+                <Link to='/signin' style={ {textDecoration: 'none'}}>
+                    <p className="signin-link">
+                        Already have an account? Sign in
+                    </p>
+                </Link>
+            </div>
         </div>
     )
 }
