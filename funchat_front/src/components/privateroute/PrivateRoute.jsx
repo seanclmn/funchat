@@ -3,18 +3,10 @@ import {Route, Navigate} from 'react-router-dom'
 import {AuthContext} from '../auth/Auth'
 
 
-function PrivateRoute({ component: RouteComponent, ...rest}) {
+function PrivateRoute({ children }) {
     const {currentUser}= useContext(AuthContext)
-
     return (
-        <Route
-            {...rest}
-            render={routeProps=> 
-                !!currentUser ? 
-                (<RouteComponent {...routeProps}/>) : 
-                (<Navigate to={"/signin"} />)
-            }
-        />    
+        !!currentUser ? children : (<Navigate to={"/signin"} />)
     )
 }
 

@@ -24,18 +24,27 @@ function App() {
   },[])
   return (
     <AuthProvider>
+
+      {/* <SignIn/> */}
+      
       <Router>
-        <div className="App">
-          {/* <PrivateRoute exact path='/' component={Main}/> */}
           <Routes>
-            <PrivateRoute exact path='/' component={Main}/>
-            <Route exact path='/signin' component={SignIn}/>
-            <Route exact path='/signup' component={SignUp}/>
+            <Route exact path= '/'
+              element={
+                <PrivateRoute>
+                  <Main/>
+                </PrivateRoute>
+          
+              }
+            />
+            <Route exact path='/signin' element={<SignIn/>}/>
+            <Route exact path='/signup' element={<SignUp/>}/>
           </Routes>
-        </div>
 
 
       </Router>
+
+
     </AuthProvider>
 
 

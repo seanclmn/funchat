@@ -1,5 +1,7 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
+import { Navigate } from 'react-router'
 import { auth } from '../../Firebase'
+import { AuthContext } from '../auth/Auth'
 
 function SignIn() {
 
@@ -21,6 +23,11 @@ function SignIn() {
         })
         console.log(Email)
     }
+
+    const { currentUser } = useContext(AuthContext)
+
+    if (currentUser) return <Navigate to='/'/>
+
     return (
         <div>
             <h2>Sign in</h2>

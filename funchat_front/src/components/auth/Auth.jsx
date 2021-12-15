@@ -15,6 +15,7 @@ function AuthProvider({ children }) {
         })
     },[])
 
+
     if(loading){
         return <p>Loading...</p>
     }
