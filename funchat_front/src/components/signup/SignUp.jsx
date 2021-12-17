@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import './Signup.css'
 
 function Signup() {
-
+    const [passwordToggle,setPasswordToggle]=useState(true)
     const [newEmail,setNewEmail]=useState("")
     const [newPassword, setNewPassword]=useState("")
 
@@ -16,7 +16,9 @@ function Signup() {
         setNewPassword(e.target.value)
     }
 
-
+    function passwordHandler(){
+        setPasswordToggle(!passwordToggle)
+    }
     function submitHandler(e){
         e.preventDefault()
         auth.createUserWithEmailAndPassword(newEmail,newPassword).then(cred=>{
@@ -43,11 +45,21 @@ function Signup() {
                 <input
                     name="password"    
                     className="signup-input"
-                    type="text"
+                    type={passwordToggle ? "password": "text"}
                     placeholder="password"
                     autoComplete="off"
                     onChange={passwordChangeHandler}
                 />
+
+                <div>
+                    <input
+                        type="checkbox"
+                        className="password-toggle"
+                        onClick={passwordHandler}
+                        
+                    />Show Password
+                </div>
+
                 <button
                 className="submit"
                     onClick={submitHandler}

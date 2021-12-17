@@ -13,5 +13,17 @@
 }
 
 #desktop-view{
-
+    /* display: inline; */
 }
+
+@media only screen and (max-width: 400px) {
+  
+    #desktop-view{
+        display: none;
+    }
+
+    #mobile-view{
+        display: block;
+    }
+    
+  }

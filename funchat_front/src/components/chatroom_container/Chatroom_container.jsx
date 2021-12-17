@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './Chatroom_container.css'
 
 import Chatroom from '../chatroom/Chatroom'
@@ -7,6 +7,13 @@ import ChatroomSearch from '../chatroom_search/ChatroomSearch'
 import SignOut from '../signout/SignOut'
 
 function Chatroom_container() {
+
+    const [profileSettings,setProfileSettings]=useState(true)
+    function profileSettingsHandler(){
+        setProfileSettings(!profileSettings)
+    }
+
+    
     return (
         <div className='chatroom-container'>
             <MyProfile profilename = {"kumamon"} img_url={process.env.PUBLIC_URL+'/kumamon.jpeg'} />

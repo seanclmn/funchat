@@ -14,7 +14,7 @@ function Main() {
         <div className="main">
 
             <div className="main-container" id="mobile-view">
-                <Chatroom_container/>
+                {/* <Chatroom_container/> */}
                 <Message_container/>
             </div>
 

@@ -1,0 +1,14 @@
+.message-input{
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+
+}
+
+.text{
+    width: 80%;
+}
+
+.send{
+    width: 20%;
+}
