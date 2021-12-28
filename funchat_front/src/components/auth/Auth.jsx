@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import { auth } from '../../Firebase'
+import './Auth.css'
 
 export const AuthContext = React.createContext()
 
@@ -17,7 +18,12 @@ function AuthProvider({ children }) {
 
 
     if(loading){
-        return <p>Loading...</p>
+        return(
+            <div className='loading-div'>
+                <p>Loading...</p>
+            </div>
+            
+            )
     }
 
     return (
