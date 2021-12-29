@@ -7,6 +7,9 @@
 
 .message-container{
     width: 100vw;
+
+    display: flex;
+    flex-direction: column;
 }
 
 
@@ -14,18 +17,43 @@
     width: 100%;
     position: fixed;
     bottom: 0px;
-    right: 0px;
+
 
     display: flex;
     flex-direction: row;
+    margin-top: auto;
 }
 
 .message-input{
     display: inline-block;
-    width: 80%;
+    width: 100%;
 
 }
 
 .message-send{
-    width: 20%;
+    display: none;
+}
+
+
+@media only screen and (max-width: 550px){
+    .message-input-container{
+        position: fixed;
+        bottom: 0px;
+        right: 0px;
+    
+
+    }
+
+
+    .message-input{
+        display: inline-block;
+        width: 80%;
+    
+    }
+    
+    .message-send{
+        display: block;
+        width: 20%;
+    }
+    
 }

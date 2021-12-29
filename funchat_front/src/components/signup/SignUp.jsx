@@ -26,6 +26,8 @@ function Signup() {
         })
         console.log(newEmail)
     }
+
+    
     return (
         <div className="signup-card-container">
             <h2 id="title">Sign up</h2>

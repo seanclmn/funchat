@@ -8,9 +8,23 @@ function Message_container() {
         <div className="message-container" >
             <div className="messages">
                 <Message/>
-                <Message/>            
+                <Message/>       
+                <Message/>
+                <Message/>                   <Message/>
+                <Message/>        
+
+                <Message/>
+                <Message/>   
+                <Message/>
+                <Message/>   
+                <Message/>
+                <Message/>   
+                <Message/>
+                <Message/>   
+                <Message/>
+                <Message/>   
+                
             </div>
-            {/* <MessageInput/> */}
             <div className="message-input-container">
                 <input className="message-input" type="text" />
                 <button className="message-send">send</button>
