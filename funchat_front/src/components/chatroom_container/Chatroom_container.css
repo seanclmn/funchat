@@ -1,9 +1,9 @@
 .chatroom-container{
-    position: fixed;
+    /* position: fixed; */
     background-color: rgb(243, 243, 243);
     min-width: 200px;
     width: 20%;
-    height: 100%;
+    height: 100vh;
 }
 
 .chatroom-nav{

@@ -8,6 +8,7 @@ import SignIn from './components/signin/SignIn'
 import firebase from 'firebase/app'
 import "firebase/auth"
 import "firebase/firestore"
+import { collections, doc, setDoc} from "firebase/firestore"
 import { auth } from './Firebase';
 import AuthProvider from './components/auth/Auth';
 import PrivateRoute from './components/privateroute/PrivateRoute';
@@ -15,13 +16,17 @@ import PrivateRoute from './components/privateroute/PrivateRoute';
 
 function App() {
 
-  console.log(auth.currentUser)
-
   const [currentUser,setCurrentUser] = useState(null)
 
   useEffect(()=>{
       auth.onAuthStateChanged(setCurrentUser)
   },[])
+
+
+  
+
+
+
   return (
     <AuthProvider>      
       <Router>
