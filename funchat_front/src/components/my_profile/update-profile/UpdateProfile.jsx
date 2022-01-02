@@ -1,17 +1,23 @@
 import React, {useState} from 'react'
 
+import { auth } from './../../../Firebase'
 
 function ProfileModal() {
+  const user = auth.currentUser;
 
-  const [displayName,setDisplayName]=useState('')
+  const [newDisplayName,setNewDisplayName]=useState('')
 
   function ChangeHandler(name){
-    setDisplayName(name)
+    setNewDisplayName(name)
   }
 
-  // submitHandler(){
-  //   setDisplayName(event.target.value)
-  // }
+  function submitHandler(event){
+    event.preventDefault()
+    user.updateProfile({
+      displayName: newDisplayName
+    })
+    console.log(newDisplayName)
+  }
 
   return (
     <form>
@@ -25,10 +31,13 @@ function ProfileModal() {
         type="text"
         onChange={(event)=>{
           event.preventDefault()
-          ChangeHandler(event)
+          ChangeHandler(event.target.value)
         
           }}
         />
+        <button onClick={(event)=>submitHandler(event)}>
+          Update
+        </button>
     </form>
     
   );

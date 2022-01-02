@@ -22,11 +22,6 @@ function App() {
       auth.onAuthStateChanged(setCurrentUser)
   },[])
 
-
-  
-
-
-
   return (
     <AuthProvider>      
       <Router>
