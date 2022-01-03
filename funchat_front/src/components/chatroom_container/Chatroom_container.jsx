@@ -1,4 +1,5 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
+import Firebase from '../../Firebase'
 import './Chatroom_container.css'
 
 import Chatroom from '../chatroom/Chatroom'
@@ -8,12 +9,22 @@ import SignOut from '../signout/SignOut'
 
 function Chatroom_container() {
 
+
+    const [loading,setLoading]=useState(true)
     const [profileSettings,setProfileSettings]=useState(true)
     function profileSettingsHandler(){
         setProfileSettings(!profileSettings)
     }
-
+    function getUsers(){
+        const snapshot = Firebase.firestore().collection('chats').get()
     
+        snapshot.docs.map(doc=>console.log(doc.data))
+    }
+    useEffect(()=>{
+        getUsers()
+    },[])
+    
+    if(loading) return null
     return (
         <div className='chatroom-container'>
             <MyProfile profilename = {"kumamon"} img_url={process.env.PUBLIC_URL+'/kumamon.jpeg'} />

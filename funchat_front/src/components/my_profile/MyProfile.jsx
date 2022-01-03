@@ -60,7 +60,7 @@ function MyProfile(props) {
               style={{cursor: 'pointer'}}
             />
 
-            <p className='profile-name'>{auth.currentUser.displayName}</p>
+            <p className='profile-name'>{auth.currentUser.displayName ? auth.currentUser.displayName: auth.currentUser.email}</p>
 
             <div>
                 <Modal

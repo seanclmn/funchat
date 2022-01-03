@@ -1,8 +1,13 @@
 import React, {useState} from 'react'
 import { auth } from '../../Firebase'
 import { Link } from 'react-router-dom'
+import Firebase from '../../Firebase'
+// import { collection } from "firebase/firestore"
 
 import './Signup.css'
+
+const db = Firebase.firestore()
+// const users = collection(db, "users")
 
 function Signup() {
     const [passwordToggle,setPasswordToggle]=useState(true)
@@ -22,7 +27,7 @@ function Signup() {
     function submitHandler(e){
         e.preventDefault()
         auth.createUserWithEmailAndPassword(newEmail,newPassword).then(cred=>{
-            console.log(cred)
+            return db.collection('users').doc(cred.user.uid)
         })
         console.log(newEmail)
     }

@@ -35,7 +35,10 @@ function ProfileModal() {
         
           }}
         />
-        <button onClick={(event)=>submitHandler(event)}>
+        <button onClick={(event)=>{
+          submitHandler(event)
+          
+          }}>
           Update
         </button>
     </form>
